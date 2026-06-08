@@ -1,18 +1,46 @@
 # Raamatukogu
 
-<!-- TODO: Kirjelda mis see rakendus on (2-3 lauset) -->
+Raamatukogu on veebirakendus raamatukogu haldamiseks. Kasutajad saavad registreeruda, sisse logida, otsida ja filtreerida raamatuid ning laenutada ja tagastada neid.
 
 ## Tehnoloogiad
 
-<!-- TODO: Lisa kasutatavad tehnoloogiad -->
+* JavaScript – rakenduse loogika ja funktsionaalsus
+* HTML – veebilehtede struktuur
+* CSS – kasutajaliidese kujundus
+* Docker – rakenduse käivitamine
 
 ## Käivitamine
 
-<!-- TODO: Lisa käivitamise juhised -->
+1. Klooni projekt:
+
+```
+git clone https://github.com/KRAKENN8/raamatukogu-lab.git
+cd raamatukogu-lab
+```
+
+2. Paigalda sõltuvused:
+
+```
+npm install
+```
+
+3. Käivita rakendus:
+
+```
+npm start
+```
+
+Rakendus on saadaval aadressil:
+
+```
+http://localhost:3000
+```
 
 ## Testikasutajad
 
-<!-- TODO: Lisa testikasutajate andmed -->
+| Email | Parool |
+|---------|---------|
+| Test.User@test.com | testpassword123 |
 
 ## API endpointid
 
@@ -20,34 +48,43 @@
 
 | Meetod | URL | Kirjeldus |
 |--------|-----|-----------|
-| POST | /api/users/signup | <!-- TODO --> |
-| POST | /api/users/login | <!-- TODO --> |
-| POST | /api/users/logout | <!-- TODO --> |
-| GET | /api/users/me | <!-- TODO --> |
+| POST | /api/users/signup | Uue kasutaja registreerimine |
+| POST | /api/users/login | Kasutaja sisselogimine |
+| POST | /api/users/logout | Kasutaja väljalogimine |
+| GET | /api/users/me | Laenutatud raamatute kohta andmete hankimine |
 
 ### Raamatud
 
 | Meetod | URL | Kirjeldus |
 |--------|-----|-----------|
-| GET | /api/books | <!-- TODO --> |
-| GET | /api/books/:id | <!-- TODO --> |
-| GET | /api/books/search | <!-- TODO --> |
-| GET | /api/books/genres | <!-- TODO --> |
-| GET | /api/books/genre/:genre | <!-- TODO --> |
+| GET | /api/books | Kõigi raamatute nimekirja pärimine |
+| GET | /api/books/:id | Konkreetse raamatu andmete pärimine |
+| GET | /api/books/search | Raamatute otsimine pealkirja, autori või muu märksõna järgi |
+| GET | /api/books/genres | Kõigi olemasolevate žanrite nimekirja pärimine |
+| GET | /api/books/genre/:genre | Raamatute filtreerimine žanri järgi |
 
 ### Laenud
 
 | Meetod | URL | Kirjeldus |
 |--------|-----|-----------|
-| POST | /api/loans | <!-- TODO --> |
-| POST | /api/loans/:id/return | <!-- TODO --> |
-| GET | /api/loans | <!-- TODO --> |
-| GET | /api/loans/me | <!-- TODO --> |
+| POST | /api/loans | Raamatu laenutamine |
+| POST | /api/loans/:id/return | Laenutatud raamatu tagastamine |
+| GET | /api/loans | Kõigi laenutuste nimekirja pärimine |
+| GET | /api/loans/me | Sisselogitud kasutaja laenutuste vaatamine |
 
 ## Testid
 
-<!-- TODO: Kirjelda kuidas teste käivitada -->
+```
+node src/test.js
+```
 
 ## GitHub Actions
 
-<!-- TODO: Kirjelda mis toimub automaatselt -->
+GitHub Actions käivitub automaatselt iga push'i ja pull request'i korral.
+
+Automaatne töövoog:
+
+- paigaldab sõltuvused;
+- käivitab testid;
+- kontrollib, et projekt ehitub edukalt;
+- tagab, et vigane kood ei jõuaks põhiharusse.
